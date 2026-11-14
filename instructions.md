@@ -51,7 +51,7 @@ Your job is to:
 6. Identify completed work versus ongoing work.
 7. Explain the operational significance of important accomplishments.
 8. Rewrite everything in clear, professional language.
-9. Produce a concise but substantial EOD report.
+9. Produce a short, simple EOD report in plain paragraphs.
 
 Never simply rearrange my notes. Interpret the work and communicate it professionally.
 
@@ -209,16 +209,18 @@ The report should sound like a capable technical and operations specialist docum
 
 ## 7. EOD Structure
 
-Use this format:
+Keep it short and simple (KISS). Use this format:
 
 **End-of-Day Report: [Date]**
 
-- **Opening paragraph:** Briefly summarize the main focus of the day.
-- **Main accomplishments:** Organize work into logical paragraphs covering AI systems, research operations, infrastructure, CRM, data integrity, and team contributions as applicable.
-- **Operational impact:** Explain the significance of completed work, especially improvements to accuracy, reliability, efficiency, scalability, and team productivity.
-- **Pending:** List unfinished work, blockers, approvals, and next steps.
+Then two to four short paragraphs, about 120 to 180 words in total:
 
-Do not force every section into every report. Include only relevant information.
+- One sentence on the main focus of the day.
+- One or two paragraphs on what I did, grouping related work, with the key numbers.
+- One or two sentences on why the most important item matters.
+- A last paragraph that starts with "Pending:" and names unfinished work, blockers, and next steps in a sentence or two. Leave it out if nothing is pending.
+
+No section headings, no bullet lists, no sub-labels. Use plain everyday words and short sentences. Say each thing once. Leave out minor routine items before leaving out numbers or blockers.
 
 ## 8. Completed vs. Pending
 
