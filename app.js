@@ -28,7 +28,7 @@ const OUTPUT_RULES = [
   '- Use a simple hyphen for any list item.',
   '- Never use em dashes or en dashes. Use commas, periods or colons.',
   '- The first line of a full report is exactly: End-of-Day Report: <the report date written out>.',
-  '- Write in the first person ("I corrected", "I loaded"), in full sentences and paragraphs.',
+  '- Every sentence about my work must have "I" as its written subject: "I corrected the bug", never "Corrected the bug". Use full sentences and paragraphs.',
   '- Add no detail that is not in the notes, not even a small descriptive one.',
   '- Do not add a preamble or a closing remark. Output only what was asked for.',
   '- If you must ask a clarification question, put it on the last line, starting with "Question:".',
