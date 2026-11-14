@@ -11,5 +11,3 @@ Instructions that turn raw daily work notes into a polished End-of-Day report fo
 ## Follow-up outputs
 
 After a report, ask for any of: AI / System Work Shipped Today, Research Output, Win for the Day, Performance Self-Assessment, Role Reconstruction Assessment, Pending Tasks.
-
-Keep this repository private. It describes internal role and compensation-review context.
