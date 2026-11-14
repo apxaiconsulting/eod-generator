@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f17">
+<meta name="robots" content="noindex,nofollow">
+<title>EOD Generator</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <h1>EOD Generator</h1>
+    <span class="chip">AI Systems &amp; Research Operations</span>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-view="write" role="tab">Today</button>
+    <button class="tab" data-view="history" role="tab">History</button>
+    <button class="tab" data-view="settings" role="tab">Settings</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ---------- write ---------- -->
+  <section id="view-write" class="view">
+    <div class="card">
+      <div class="row between">
+        <h2>Raw notes</h2>
+        <label class="datewrap">Report date <input type="date" id="date"></label>
+      </div>
+      <textarea id="notes" rows="10" placeholder="Paste everything you worked on today. Fragments, repeats and mixed projects are fine."></textarea>
+      <div class="row between wrap">
+        <span class="hint" id="saveHint">Notes save on this device as you type.</span>
+        <div class="row">
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <button class="btn primary" id="genBtn">Generate EOD</button>
+        </div>
+      </div>
+      <p class="status" id="status" hidden></p>
+    </div>
+
+    <div class="card" id="reportCard" hidden>
+      <div class="row between">
+        <h2>EOD report</h2>
+        <button class="btn" id="copyReport">Copy</button>
+      </div>
+      <textarea id="report" rows="18" spellcheck="true"></textarea>
+      <p class="hint">You can edit the report here. Edits are saved and used for the outputs below.</p>
+    </div>
+
+    <div class="card" id="extrasCard" hidden>
+      <h2>More outputs</h2>
+      <p class="hint">Each one is written from today's notes and the report above.</p>
+      <div class="modes" id="modes"></div>
+      <div id="extras"></div>
+    </div>
+  </section>
+
+  <!-- ---------- history ---------- -->
+  <section id="view-history" class="view" hidden>
+    <div class="card">
+      <h2>Past reports</h2>
+      <p class="hint">Stored only in this browser. Open one to view, edit or regenerate it.</p>
+      <div id="historyList"></div>
+      <div class="row wrap" style="margin-top:14px">
+        <button class="btn" id="exportBtn">Export backup</button>
+        <button class="btn" id="importBtn">Import backup</button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- settings ---------- -->
+  <section id="view-settings" class="view" hidden>
+    <div class="card">
+      <h2>Instructions</h2>
+      <p class="hint">The role reconstruction instructions sent with every request. Changes stay on this device.</p>
+      <textarea id="instructions" rows="18" class="mono"></textarea>
+      <div class="row between wrap">
+        <span class="hint" id="instrHint"></span>
+        <div class="row">
+          <button class="btn ghost" id="resetInstr">Reset to default</button>
+          <button class="btn primary" id="saveInstr">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>AI endpoint</h2>
+      <p class="hint">The worker that forwards requests to the model. It only answers the published site, not a local copy.</p>
+      <input type="url" id="endpoint" class="mono">
+      <div class="row end"><button class="btn primary" id="saveEndpoint">Save</button></div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
