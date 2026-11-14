@@ -1,5 +1,5 @@
 /* Bump VERSION on every deploy so clients pick up the new files. */
-const VERSION = 'eod-v1';
+const VERSION = 'eod-v2';
 const ASSETS = ['./','./index.html','./styles.css','./app.js','./instructions.md','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install', e => {
