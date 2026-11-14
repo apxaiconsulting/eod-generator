@@ -1,5 +1,5 @@
 /* Bump VERSION on every deploy so clients pick up the new files. */
-const VERSION = 'eod-v4';
+const VERSION = 'eod-v5';
 const ASSETS = ['./','./index.html','./styles.css','./app.js','./instructions.md','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install', e => {
@@ -17,7 +17,9 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if(e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
   e.respondWith(
-    fetch(e.request)
+    /* no-cache = always revalidate with the server, so a deploy shows up on the
+       next load instead of after the browser's 10 minute HTTP cache expires. */
+    fetch(e.request, { cache:'no-cache' })
       .then(res => {
         const copy = res.clone();
         caches.open(VERSION).then(c => c.put(e.request, copy)).catch(()=>{});

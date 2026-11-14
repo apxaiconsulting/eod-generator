@@ -363,13 +363,17 @@ async function init(){
   };
 
   try{
-    const r = await fetch('./instructions.md');
+    const r = await fetch('./instructions.md', { cache:'no-cache' });
     if(r.ok) DEFAULT_INSTRUCTIONS = (await r.text()).trim();
   }catch(e){}
   if(!instructions().trim()) setStatus('The default instructions could not be loaded. Reload the page while online.', true);
 
   if('serviceWorker' in navigator && location.protocol === 'https:'){
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+    /* When a new version takes over, load it straight away, unless a report
+       is being written right now. Typed notes are already saved. */
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if(hadController && !busy) location.reload(); });
+    navigator.serviceWorker.register('sw.js', { updateViaCache:'none' }).then(r => r.update()).catch(() => {});
   }
 }
 init();
